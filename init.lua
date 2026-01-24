@@ -1,6 +1,6 @@
 circuits = {}
 
--- Request insecure environment for luajit bitops
+--[[ Request insecure environment for luajit bitops
 local insecure = core.request_insecure_environment()
 if not insecure then
 	error(table.concat{"\nCircuits requires bitops library to function.\n"
@@ -8,6 +8,7 @@ if not insecure then
 			, "in settings or disable mod security."})
 end
 bit = insecure.require("bit")
+]]
 
 circuits.hash_pos = core.hash_node_position
 circuits.unhash_pos = core.get_position_from_hash
