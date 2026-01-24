@@ -28,11 +28,11 @@ local function insert_update(update, type)
 end
 
 local function cons_or_wire(name)
-	local is_wire = minetest.get_item_group(name, "circuit_wire")
+	local is_wire = core.get_item_group(name, "circuit_wire")
 	if is_wire > 0 then
 		return "wire"
 	end
-	local is_cons = minetest.get_item_group(name, "circuit_consumer")
+	local is_cons = core.get_item_group(name, "circuit_consumer")
 	if is_cons > 0 then
 		return "consumer"
 	end
@@ -73,7 +73,7 @@ local function is_valid_update(npos)
 	end
 
 	local cd = c.get_circuit_def(npos.node.name)
-	local node = minetest.get_node(npos)
+	local node = core.get_node(npos)
 	local new_cd = c.get_circuit_def(node.name)
 
 	if not cd or not new_cd
@@ -90,7 +90,7 @@ local no_ticks_sec = 12
 -- Wait for local area to load - hack
 -- TODO force loading or something else
 local timer = -5
-minetest.register_globalstep(function(dtime)
+core.register_globalstep(function(dtime)
 	timer = timer + dtime
 	if timer < 1/no_ticks_sec then
 		return

@@ -38,14 +38,14 @@ local wire = {
 	on_rightclick = function(pos,node)
 		local flags = node.param2
 		pos = c.npos(pos,node)
-		minetest.chat_send_all(flags)
+		core.chat_send_all(flags)
 		local network, powered = get_wire_network(pos)
 		for _,real in pairs(network) do
 			local dir = c.rot_relative_pos(pos, real)
-			minetest.chat_send_all("{ " .. dir.x ..  ","
+			core.chat_send_all("{ " .. dir.x ..  ","
 				.. dir.y .. "," .. dir.z .. "}")
 		end
-		minetest.chat_send_all(tostring(powered))
+		core.chat_send_all(tostring(powered))
 	end,
 	--]]
 	--after_place_node = function(pos,placer,itemstack,pointed_thing)

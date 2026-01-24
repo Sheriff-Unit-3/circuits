@@ -84,7 +84,7 @@ end
 -- pos - real pos of node
 circuits.pos_wallmount_relative = function(wallmount,npos,pos)
 	local diff = vector.subtract(pos,npos)
-	local rot = circuits.dir_to_mount(minetest.wallmounted_to_dir(wallmount))
+	local rot = circuits.dir_to_mount(core.wallmounted_to_dir(wallmount))
 	return transform_pos(diff,rot)
 end
 
@@ -93,7 +93,7 @@ end
 -- npos - pos of wallmouned node
 -- rpos - relative pos
 circuits.wallmount_real_pos = function(wallmount,npos,rpos)
-	local rot = circuits.dir_to_mount(minetest.wallmounted_to_dir(wallmount))
+	local rot = circuits.dir_to_mount(core.wallmounted_to_dir(wallmount))
 	return vector.add(reverse_transform(rpos,rot),npos)
 end
 	

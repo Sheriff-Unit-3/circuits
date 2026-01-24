@@ -2,12 +2,12 @@ local c = circuits
 
 local function power_on(npos)
 	npos.node.name = c.get_powered(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local function power_off(npos)
 	npos.node.name = c.get_off(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local button = {
@@ -39,7 +39,7 @@ local button = {
 		if not c.is_on(npos) then
 			c.power_update(npos,"on")
 		end
-		minetest.get_node_timer(pos):start(1)
+		core.get_node_timer(pos):start(1)
 	end,
 	on_timer = function(pos,_)
 		local npos = c.npos(pos)

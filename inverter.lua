@@ -2,12 +2,12 @@ local c = circuits
 
 local function power_on(npos)
 	npos.node.name = c.get_powered(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local function power_off(npos)
 	npos.node.name = c.get_off(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local inverter = {

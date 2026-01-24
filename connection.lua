@@ -50,7 +50,7 @@ local function map_connect_mod(node, dir, mod)
 		node.node.param2 = mod(node.node.param2, dir)
 
 	elseif cd.store_connect == "meta" then
-		local meta = minetest.get_meta(node)
+		local meta = core.get_meta(node)
 		meta:set_int("connect",mod(meta:get_int("connect"), dir))
 	end
 end
@@ -107,7 +107,7 @@ end
 -- node - name of node
 local function allow_connect(a_cd, node)
 	for _, a_connects_to in ipairs(a_cd.connects_to) do
-		if minetest.get_item_group(node, a_connects_to) > 0 then
+		if core.get_item_group(node, a_connects_to) > 0 then
 			return true
 		end
 	end
@@ -120,7 +120,7 @@ local function set_connections(npos)
 	
 	if cd.store_connect == "param1"
 	or cd.store_connect == "param2" then
-		minetest.swap_node(npos, npos.node)
+		core.swap_node(npos, npos.node)
 
 	elseif cd.store_connect == "meta" then
 		-- Already set
@@ -136,28 +136,28 @@ local function connect(a,b)
 
 	-- If one does not have a connection def - they cannot connect
 	if not a_cd or not b_cd then
-		-- minetest.chat_send_all("Missing cd")
+		-- core.chat_send_all("Missing cd")
 		return false
 	end
 
 	local a_rpos = c.rot_relative_pos(a,b)
 	-- If they are not aligned to an axis - they cannot connect
 	if not c.rpos_is_dir(a_rpos) then
-		-- minetest.chat_send_all("rpos is not dir")
+		-- core.chat_send_all("rpos is not dir")
 		return false
 	end
 
 	local b_rpos = c.rot_relative_pos(b,a)
 	-- If neither is in the range of the other - they can't connect
 	if  in_range(a_cd, a_rpos) + in_range(b_cd, b_rpos) < 3 then
-		-- minetest.chat_send_all("rpos not in range")
+		-- core.chat_send_all("rpos not in range")
 		return false
 	end
 
 	-- If either is not allowed to connect - they cannot connect
 	if not allow_connect(a_cd, b.node.name)
 	or not allow_connect(b_cd, a.node.name) then
-		-- minetest.chat_send_all("node cannot connect")
+		-- core.chat_send_all("node cannot connect")
 		return false
 	end
 
@@ -196,7 +196,7 @@ local function connect_all(node)
 		for dist=1,max_dist do
 			local pos = {x=0, y=0, z=0}; pos[axis] = dir * dist
 			local to = c.rot_relative_real_pos(node,pos)
-			to.node = minetest.get_node(to)
+			to.node = core.get_node(to)
 
 			-- Only one connection per side
 			if c.connect(node,to) then
@@ -231,7 +231,7 @@ local function get_bit_flags(node)
 		return node.node.param2
 
 	elseif cd.store_connect == "meta" then
-		local meta = minetest.get_meta(node)
+		local meta = core.get_meta(node)
 		return meta:get_int("connect")
 	end
 end

@@ -2,12 +2,12 @@ local c = circuits
 
 local function power_on(npos)
 	npos.node.name = c.get_powered(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local function power_off(npos)
 	npos.node.name = c.get_off(npos)
-	minetest.swap_node(npos,npos.node)
+	core.swap_node(npos,npos.node)
 end
 
 local pressure_plate = {
@@ -34,12 +34,12 @@ local pressure_plate = {
 	walkable = false,
 	groups = {dig_immediate=3,source=1, circuit_power=1},
 	on_construct = function(pos)
-		minetest.get_node_timer(pos):start(0.1)
+		core.get_node_timer(pos):start(0.1)
 	end,
 	--after_place_node = function(pos,placer,itemstack,pointed_thing)
 	on_timer = function(pos,_)
 		local npos = c.npos(pos)
-		local entity = minetest.get_objects_inside_radius(npos,0.8)
+		local entity = core.get_objects_inside_radius(npos,0.8)
 
 		if entity and #entity >= 1 then
 			if not c.is_on(npos) then

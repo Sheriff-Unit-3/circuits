@@ -27,7 +27,7 @@ end
 -- Get the circuits table of a node
 -- return nil if does not exist
 c.get_circuit_def = function(node_name)
-	local def = minetest.registered_nodes[node_name]
+	local def = core.registered_nodes[node_name]
 	if not def or not def.circuits then
 		return nil
 	end
@@ -72,7 +72,7 @@ end
 -- [node] - a node
 c.npos = function(pos, node)
 	if not node then
-		node = minetest.get_node(pos)
+		node = core.get_node(pos)
 	end
 	pos.node = node
 	return pos
@@ -151,6 +151,6 @@ c.register_node = function(name, def)
 		error("Wire set without a base node")
 	end
 
-	minetest.register_node(name, def)
+	core.register_node(name, def)
 end
 

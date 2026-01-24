@@ -22,7 +22,7 @@ local indicator = {
 				if c.is_powering(node, npos) then
 					if not c.is_on(npos) then
 						npos.node.name = c.get_powered(npos)
-						minetest.swap_node(npos,npos.node)
+						core.swap_node(npos,npos.node)
 						return true
 					else
 						return false
@@ -32,7 +32,7 @@ local indicator = {
 
 			if c.is_on(npos) then
 				npos.node.name = c.get_off(npos)
-				minetest.swap_node(npos,npos.node)
+				core.swap_node(npos,npos.node)
 				return true
 			else
 				return false

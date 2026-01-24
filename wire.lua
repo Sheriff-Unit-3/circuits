@@ -1,7 +1,7 @@
 local c = circuits
 
 local function is_wire(name)
-	return minetest.get_item_group(name,"circuit_wire") > 0
+	return core.get_item_group(name,"circuit_wire") > 0
 end
 
 local max_net_items = 50
@@ -22,7 +22,7 @@ local function get_wire_network(npos)
 					seen[c.hash_pos(node)] = node
 				end
 				if not powered
-				and minetest.get_item_group(node.node.name,"circuit_power") > 0 then
+				and core.get_item_group(node.node.name,"circuit_power") > 0 then
 					powered = powered or c.is_powering(node, item)
 				end
 			end
@@ -61,9 +61,9 @@ c.wire_update = function(npos)
 			local new_name = to_function(node)
 			if node.node.name ~= new_name then
 				node.node.name = new_name
-				minetest.swap_node(node,node.node)
+				core.swap_node(node,node.node)
 			end
-		elseif minetest.get_item_group(node.node.name,"circuit_consumer") > 0 then
+		elseif core.get_item_group(node.node.name,"circuit_consumer") > 0 then
 			c.update(node)
 		end
 	end

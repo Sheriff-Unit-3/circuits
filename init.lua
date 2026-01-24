@@ -1,7 +1,7 @@
 circuits = {}
 
 -- Request insecure environment for luajit bitops
-local insecure = minetest.request_insecure_environment()
+local insecure = core.request_insecure_environment()
 if not insecure then
 	error(table.concat{"\nCircuits requires bitops library to function.\n"
 			, "Please add circuits to the trusted mods list\n"
@@ -9,10 +9,10 @@ if not insecure then
 end
 bit = insecure.require("bit")
 
-circuits.hash_pos = minetest.hash_node_position
-circuits.unhash_pos = minetest.get_position_from_hash
+circuits.hash_pos = core.hash_node_position
+circuits.unhash_pos = core.get_position_from_hash
 
-local modpath = minetest.get_modpath("circuits")
+local modpath = core.get_modpath("circuits")
 
 dofile(modpath .. "/util.lua")
 dofile(modpath .. "/position.lua")
@@ -27,4 +27,3 @@ dofile(modpath .. "/inverter.lua")
 dofile(modpath .. "/pressure_plate.lua")
 dofile(modpath .. "/button.lua")
 dofile(modpath .. "/wrench.lua")
---dofile(modpath .. "/prototype.lua")

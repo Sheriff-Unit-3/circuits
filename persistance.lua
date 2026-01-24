@@ -1,5 +1,5 @@
 local c = circuits
-local database_path = minetest.get_worldpath() .. "/circuits_db.txt"
+local database_path = core.get_worldpath() .. "/circuits_db.txt"
 
 --[[ {
 --	update_list = {
@@ -16,7 +16,7 @@ local file = io.open(database_path,"r")
 if file then
 	local pending_string = file:read("*all")
 	if pending_string and pending_string ~= "" then
-		c.pending = minetest.deserialize(pending_string)
+		c.pending = core.deserialize(pending_string)
 	end
 	file:close()
 end
@@ -30,11 +30,11 @@ end
 
 local function save_pending()
 	local file = assert(io.open(database_path,"w"))
-	local pending_string = minetest.serialize(c.pending)
+	local pending_string = core.serialize(c.pending)
 	if pending_string then
 		file:write(pending_string)
 	end
 	file:close()
 end
 
-minetest.register_on_shutdown(save_pending)
+core.register_on_shutdown(save_pending)
