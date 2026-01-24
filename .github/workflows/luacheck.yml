@@ -14,4 +14,4 @@ jobs:
     - name: luacheck install
       run: luarocks install --local luacheck
     - name: luacheck run
-      run: $HOME/.luarocks/bin/luacheck ./mods/BLK_CORE/ --only 0 --globals core minetest vector bit
+      run: $HOME/.luarocks/bin/luacheck ./ --only 0 --globals core minetest vector bit circuits
