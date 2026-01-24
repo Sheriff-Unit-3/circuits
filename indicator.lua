@@ -38,9 +38,7 @@ local indicator = {
 				return false
 			end
 		end
-
-	},
-
+	}
 }
 
 c.register_on_off("circuits:indicator",indicator,{},
@@ -51,4 +49,3 @@ c.register_on_off("circuits:indicator",indicator,{},
 		.. "^default_glass.png"
 	},
 })
-

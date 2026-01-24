@@ -69,13 +69,9 @@ local button = {
 		end,
 		powering = function(npos, rpos)
 			return c.is_on(npos)
-		end,
-	},
+		end
+	}
 }
 
-circuits.register_on_off("circuits:button",button,
-{
-},
-{
-	tiles = {"default_mese_block.png^[colorize:#111:160"},
-})
+circuits.register_on_off("circuits:button",button,{},
+	{tiles = {"default_mese_block.png^[colorize:#111:160"}})

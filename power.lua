@@ -10,7 +10,6 @@ c.is_powering = function(npos, node)
 	or not c.is_connected(npos,node) then
 		return false
 	end
-
 	return cd.powering(npos,c.rot_relative_pos(npos,node))
 end
 
@@ -36,7 +35,6 @@ local function cons_or_wire(name)
 	if is_cons > 0 then
 		return "consumer"
 	end
-
 	return nil
 end
 
@@ -50,7 +48,6 @@ c.wait = function(npos, args, no_ticks)
 end
 
 c.update = function(npos, args)
-
 	local type = cons_or_wire(npos.node.name)
 	local update = {
 		npos = npos,
@@ -136,7 +133,6 @@ core.register_globalstep(function(dtime)
 	for i=#c.pending.wait,replace+1,-1 do
 		c.pending.wait[i] = nil
 	end
-
 end)
 
 

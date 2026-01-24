@@ -96,7 +96,7 @@ circuits.wallmount_real_pos = function(wallmount,npos,rpos)
 	local rot = circuits.dir_to_mount(core.wallmounted_to_dir(wallmount))
 	return vector.add(reverse_transform(rpos,rot),npos)
 end
-	
+
 local axis_dirs = {
 	[0] = {x=0,y=-1,z=0},
 	{x=0,y=0,z=-1},
@@ -171,7 +171,7 @@ circuits.facedir_real_pos = function(facedir,npos,rpos)
 	local _,rot = circuits.facedir_to_dir(facedir)
 	return vector.add(reverse_transform(rpos,rot),npos)
 end
-	
+
 circuits.relative_pos = function(node,pos)
 	return vector.subtract(pos,node)
 end
@@ -209,7 +209,6 @@ circuits.rpos_is_dir = function(rpos)
 	if mag then
 		return vector.divide(rpos, math.abs(mag))
 	end
-
 	return nil
 end
 
@@ -227,7 +226,7 @@ circuits.rot_relative_pos = function(a, b)
 		return circuits.relative_pos(a, b)
 	end
 end
-	
+
 -- Takes two one npos and an rpos, and returns the real pos, relative to
 -- any rotation a might have
 -- a - npos a 
@@ -243,11 +242,7 @@ circuits.rot_relative_real_pos = function(a, rpos)
 	end
 end
 
-
---[[
---	A set of basic connection configs for use 
---	in node defs
---]]
+--	A set of basic connection configs for use in node defs
 
 circuits.local_area = {
 	x = {1, -1},
@@ -255,6 +250,4 @@ circuits.local_area = {
 	z = {1, -1}
 }
 
-circuits.behind = {
-	y = {0, -2}
-}
+circuits.behind = {y = {0, -2}}

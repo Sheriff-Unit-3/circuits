@@ -300,4 +300,3 @@ local function get_all_connected(node)
 	return connected
 end
 c.get_all_connected = get_all_connected
-

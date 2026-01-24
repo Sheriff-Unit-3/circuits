@@ -41,11 +41,9 @@ c.wire_update = function(npos)
 		return false
 	end
 
-	if  powered
-	and c.is_on(npos) then
+	if powered and c.is_on(npos) then
 		return true
-	elseif not powered
-	and    not c.is_on(npos) then
+	elseif not powered and not c.is_on(npos) then
 		return true
 	end
 
@@ -67,6 +65,5 @@ c.wire_update = function(npos)
 			c.update(node)
 		end
 	end
-
 	return true
 end

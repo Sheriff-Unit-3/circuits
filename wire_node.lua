@@ -63,9 +63,7 @@ local wire = {
 }
 
 c.register_on_off("circuits:wire",wire,{},
-{
-	tiles = {"default_mese_block.png^[colorize:#111:160"},
-})
+	{tiles = {"default_mese_block.png^[colorize:#111:160"}})
 
 local colours = {
 	red = "^[colorize:#F00:160",
@@ -87,4 +85,3 @@ for _, colour in ipairs{"red", "green", "blue"} do
 		tiles = {"default_mese_block.png" .. col_string .. "^[colorize:#111:160"},
 	})
 end
-

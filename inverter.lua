@@ -69,9 +69,7 @@ local inverter = {
 	},
 }
 
-c.register_on_off("circuits:inverter",inverter,
-{
-},
+c.register_on_off("circuits:inverter",inverter,{},
 {
 	tiles = {"(default_mese_block.png)"
 		.. "^[colorize:#111:160^default_glass.png"

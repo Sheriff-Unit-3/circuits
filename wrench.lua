@@ -9,7 +9,6 @@ local function is_facedir(npos)
 	if def.paramtype2 == "facedir" then
 		return true
 	end
-
 	return false
 end
 
@@ -46,5 +45,5 @@ core.register_craftitem("circuits:wrench", {
 		end
 		npos.node.param2 = new_rot
 		core.set_node(npos, npos.node)
-	end,
+	end
 })

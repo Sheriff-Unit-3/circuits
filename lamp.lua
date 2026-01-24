@@ -41,9 +41,7 @@ local lamp = {
 				return false
 			end
 		end
-
-	},
-
+	}
 }
 
 c.register_on_off("circuits:lamp",lamp,{},
@@ -55,4 +53,3 @@ c.register_on_off("circuits:lamp",lamp,{},
 	},
 	light_source = 0,
 })
-

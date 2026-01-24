@@ -76,9 +76,5 @@ local pressure_plate = {
 	},
 }
 
-c.register_on_off("circuits:pressure_plate",pressure_plate,
-{
-},
-{
-	tiles = {"default_mese_block.png^[colorize:#111:160"},
-})
+c.register_on_off("circuits:pressure_plate",pressure_plate,{},
+	{tiles = {"default_mese_block.png^[colorize:#111:160"}})

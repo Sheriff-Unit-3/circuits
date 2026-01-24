@@ -1,6 +1,8 @@
 {
   "Lua.diagnostics.globals": [
     "core",
-    "minetest"
+    "minetest",
+    "vector",
+    "bit"
   ]
 }
