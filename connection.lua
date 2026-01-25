@@ -136,28 +136,23 @@ local function connect(a,b)
 
 	-- If one does not have a connection def - they cannot connect
 	if not a_cd or not b_cd then
-		-- core.chat_send_all("Missing cd")
 		return false
 	end
 
 	local a_rpos = c.rot_relative_pos(a,b)
 	-- If they are not aligned to an axis - they cannot connect
 	if not c.rpos_is_dir(a_rpos) then
-		-- core.chat_send_all("rpos is not dir")
 		return false
 	end
 
 	local b_rpos = c.rot_relative_pos(b,a)
 	-- If neither is in the range of the other - they can't connect
 	if  in_range(a_cd, a_rpos) + in_range(b_cd, b_rpos) < 3 then
-		-- core.chat_send_all("rpos not in range")
 		return false
 	end
 
 	-- If either is not allowed to connect - they cannot connect
-	if not allow_connect(a_cd, b.node.name)
-	or not allow_connect(b_cd, a.node.name) then
-		-- core.chat_send_all("node cannot connect")
+	if not allow_connect(a_cd, b.node.name) or not allow_connect(b_cd, a.node.name) then
 		return false
 	end
 
@@ -174,16 +169,17 @@ c.connect = connect
 -- a - npos of a node
 -- b - npos of other node
 local function disconnect(a, b)
+	if not a or not b then return false end
 	local b_rpos = c.rot_relative_pos(b,a)
 
 	-- If they are not aligned to an axis - they cannot disconnect
 	local dir = c.rpos_is_dir(b_rpos)
 	if not dir then
-		return
+		return false
 	end
 
 	map_connect_mod(b, dir, bit_disconnect)
-	return
+	return true
 end
 c.disconnect = disconnect
 
@@ -212,12 +208,14 @@ c.connect_all = connect_all
 
 -- node - npos
 local function disconnect_all(node)
+	if not node then return false end
 	local node_cd = c.get_circuit_def(node.node.name)
 	for _, other in ipairs(c.get_all_connected(node)) do
 		disconnect(node, other)
 		set_connections(other)
 		c.update(other)
 	end
+	return true
 end
 c.disconnect_all = disconnect_all
 
@@ -258,8 +256,7 @@ local function get_connected_in_dir(npos,dir,flags)
 		local to_cd = c.get_circuit_def(to.node.name)
 
 		-- If either is not allowed to connect - they cannot connect
-		if  allow_connect(npos_cd, to.node.name)
-		and allow_connect(to_cd, npos.node.name) then
+		if  allow_connect(npos_cd, to.node.name) and allow_connect(to_cd, npos.node.name) then
 			return to
 		end
 	end
@@ -289,6 +286,7 @@ c.is_connected = is_connected
 
 -- node - npos
 local function get_all_connected(node)
+	if not node then return false end
 	local flags = get_bit_flags(node)
 	local connected = {}
 	for dir_hash,_ in pairs(c.dir_bits) do

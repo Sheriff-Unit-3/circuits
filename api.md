@@ -1,5 +1,8 @@
 These are functions contained within the namespace `circuits` to be used both
-internally and externally. This documentation of them is a work in progress.  
+internally and externally. This documentation of them is a work in progress.
+Many of these descriptions may be incomplete, missing, or incorrect. Take everything here 
+with a grain of salt.  
+
 # Util Functions
 These functions are contained within the `util.lua` file.
 ## register_on_off
@@ -72,8 +75,68 @@ circuits.on_destruct(pos)
 circuits.register_node(name, def)
 ```
 
+# Connect Functions
+These functions are contained within the `connection.lua` file.
+## connect
+```lua
+--- Attempt to connect 2 nodes together.
+-- @param a table npos of node a.
+-- @param b table npos of node b.
+-- @return false If connection fails.
+-- @return true If connection is made.
+circuits.connect(a, b)
+```
+## disconnect
+```lua
+--- Disconnect node b from node a
+-- @param a table npos of node a
+-- @param b table npos of node b
+-- @return true If disconnect is completed.
+-- @return false If disconnection fails.
+circuits.disconnect(a, b)
+```
+## connect_all
+```lua
+--- Connects a node to all nearby nodes.
+-- @param node table npos of node to connect.
+-- @return node If connection attempts are made.
+circuits.connect_all(node)
+```
+## disconnect_all
+```lua
+--- Disconnects all connects for a node.
+-- @param node table npos of node.
+-- @return true If disconnection attempts are made.
+-- @return false If disconnection fails.
+circuits.disconnect_all
+```
+## get_connected_in_dir
+```lua
+--- Tells you if it's connected in that direction?
+-- @param npos table npos of node.
+-- @param dir
+-- @param flags
+circuits.get_connected_in_dir(npos, dir, flags)
+```
+## is_connected
+```lua
+--- Tells you if a node is connected.
+-- @param npos table npos of a node.
+-- @param to
+-- @return true If node is connected.
+-- @return false If node is not connected.
+circuits.is_connected(npos, to)
+```
+## get_all_connected
+```lua
+--- Gets all connnections for a node.
+-- @param node table npos of the node.
+-- @return table
+-- @return false If operation fails.
+```
+
 # Position Functions
-These function are contained within the `position.lua` file.
+These functions are contained within the `position.lua` file.
 ## dir_to_mount
 ```lua
 --- Gives you the mapping matrix for each direction.
