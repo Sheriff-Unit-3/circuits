@@ -3,7 +3,7 @@ local c = circuits
 local lamp = {
 	description = "Lamp",
 	drawtype = "normal",
-	tiles = {"circuits_lamp_off.png"},
+	tiles = {"circuits_lamp_on.png"},
 	use_texture_alpha = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -41,9 +41,11 @@ local lamp = {
 	}
 }
 
-c.register_on_off("circuits:lamp",lamp,{
-	tiles = {"circuits_lamp_on.png"}
+c.register_on_off("circuits:lamp",lamp,
+{
+	groups = {choppy=1,circuit_consumer=1,not_in_creative_inventory=1}
 },
 {
+	tiles = {"circuits_lamp_off.png"},
 	light_source = 0,
 })

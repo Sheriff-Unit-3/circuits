@@ -17,7 +17,6 @@ local inverter = {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {choppy=1,circuit_consumer=1,circuit_power=1},
-	--after_place_node = function(pos,placer,itemstack,pointed_thing)
 	circuits = {
 		base_node = "circuits:inverter",
 		connects = c.local_area,
@@ -63,7 +62,8 @@ local inverter = {
 	},
 }
 
-c.register_on_off("circuits:inverter",inverter,{},
+c.register_on_off("circuits:inverter",inverter,
 {
-	tiles = {"circuits_inverter.png"}
-})
+	groups = {choppy=1,circuit_consumer=1,circuit_power=1,not_in_creative_inventory=1}
+},
+{})

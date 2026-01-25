@@ -38,7 +38,10 @@ local indicator = {
 	}
 }
 
-c.register_on_off("circuits:indicator",indicator,{},
+c.register_on_off("circuits:indicator",indicator,
+{
+	groups = {choppy=1,circuit_consumer=1,not_in_creative_inventory=1}
+},
 {
 	tiles = {"circuits_indicator_off.png"}
 })

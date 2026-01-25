@@ -61,7 +61,10 @@ local wire = {
 }
 
 c.register_on_off("circuits:wire",wire,{},
-	{tiles = {"circuits_wire.png^[colorize:#111:160"}})
+{
+	tiles = {"circuits_wire.png^[colorize:#111:160"},
+	groups = {dig_immediate=3,circuit_wire=1,circuit_raw_wire=1,not_in_creative_inventory=1}
+})
 
 local colours = {
 	red = "^[colorize:#F00:160",
@@ -78,8 +81,11 @@ for _, colour in ipairs{"red", "green", "blue"} do
 	  , "group:circuit_consumer", "group:circuit_power"}
 	def.circuits.connects_to = {"circuit_raw_wire", "circuit_wire_" .. colour
 	  , "circuit_consumer", "circuit_power"}
-	c.register_on_off("circuits:wire_" .. colour,def,{},
+	c.register_on_off("circuits:wire_" .. colour,def,
 	{
-		tiles = {"circuits_wire.png" .. col_string .. "^[colorize:#111:160"},
+		groups={dig_immediate=3,circuit_wire=1,circuit_raw_wire=1,not_in_creative_inventory=1}
+	},
+	{
+		tiles = {"circuits_wire.png" .. col_string .. "^[colorize:#111:160"}
 	})
 end

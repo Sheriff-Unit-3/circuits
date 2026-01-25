@@ -70,4 +70,7 @@ local button = {
 	}
 }
 
-circuits.register_on_off("circuits:button",button,{},{})
+circuits.register_on_off("circuits:button",button,
+{
+	groups = {choppy=1,circuit_power=1,not_in_creative_inventory=1}
+},{})
