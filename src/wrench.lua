@@ -23,7 +23,7 @@ local dir_to_facedir = {
 
 core.register_craftitem("circuits:wrench", {
 	description = "Wrench",
-	inventory_image = "screwdriver.png^[colorize:#111:160",
+	inventory_image = "circuits_wrench.png",
 	on_use = function(itemstack, placer, pointed_thing)
 		local npos = c.npos(pointed_thing.under)
 		if not is_facedir(npos) then
