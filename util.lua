@@ -78,9 +78,6 @@ c.npos = function(pos, node)
 	return pos
 end
 
-c.pos_string = function(pos)
-	return "{" .. pos.x .. "," .. pos.y .. "," .. pos.z .. "}"
-end
 
 c.on_construct = function(pos)
 	pos = c.npos(pos)

@@ -43,3 +43,30 @@ circuits.get_off(npos)
 -- @return nil If the node is not on or off, or if pos was not supplied.
 circuits.is_on(npos)
 ```
+## npos
+```lua
+--- Mutate a pos into a npos.
+-- @param pos table The position the node is at.
+-- @param [node] table A table of the name, param1, and param2.
+-- @return npos
+circuits.npos(pos[, node])
+```
+## on_construct
+```lua
+--- Attempts to connect all nodes next to that pos
+-- @param pos table The pos at which to attempt to connect nodes.
+circuits.on_construct(pos)
+```
+## on_destruct
+```lua
+--- Disconnects all nodes attached to that pos
+-- @param pos table
+circuits.on_destruct(pos)
+```
+## register_node
+```lua
+--- Registers nodes, used internally
+-- @param name string The name of the node
+-- @param def table The node definition table
+circuits.register_node(name, def)
+```

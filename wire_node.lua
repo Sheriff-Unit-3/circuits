@@ -35,19 +35,6 @@ local wire = {
 	groups = {dig_immediate=3,circuit_wire=1,circuit_raw_wire=1},
 	connects_to = {"group:circuit_wire", "group:circuit_consumer", "group:circuit_power"},
 	--[[
-	on_rightclick = function(pos,node)
-		local flags = node.param2
-		pos = c.npos(pos,node)
-		local network, powered = get_wire_network(pos)
-		for _,real in pairs(network) do
-			local dir = c.rot_relative_pos(pos, real)
-			core.chat_send_all("{ " .. dir.x ..  ","
-				.. dir.y .. "," .. dir.z .. "}")
-		end
-	end,
-	--]]
-	--after_place_node = function(pos,placer,itemstack,pointed_thing)
-	--[[
 	--	Circuits properties definition area
 	--]]
 	circuits = {
