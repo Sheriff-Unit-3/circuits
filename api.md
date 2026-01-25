@@ -72,6 +72,91 @@ circuits.on_destruct(pos)
 circuits.register_node(name, def)
 ```
 
+# Position Functions
+These function are contained within the `position.lua` file.
+## dir_to_mount
+```lua
+--- Gives you the mapping matrix for each direction.
+-- @param dir table dir in the form {y=-2}.
+-- @return mounts
+circuits.dir_to_mount(dir)
+```
+## pos_wallmount_relative
+```lua
+--- Converts wallmounted pos to a relative pos.
+-- @param wallmount param of wallmounted node.
+-- @param npos table pos of wallmounted node.
+-- @param pos real pos of node.
+circuits.pos_wallmout_relative(wallmount, npos, pos)
+```
+## wallmount_real_pos
+```lua
+--- Converts wallmounted relative pos into real pos.
+-- @param wallmount param of wallmounted node.
+-- @param npos table pos ot wallmounted node.
+-- @param rpos table relative pos.
+circuits.wallmount_real_pos(wallmounted, npos, rpos)
+```
+## facedir_to_dir
+```lua
+--- Gives you the vertical axis and axis transformations of a facedif node.
+-- @param facedir
+-- @return vertical axes and axis transformation.
+circuits.facedir_to_dir(facedir)
+```
+## pos_facedir_relative
+```lua
+--- Transforms pos to pos relative to a facedir node.
+-- @param facedir param of facedir node.
+-- @param npos table pos of facedir node.
+-- @param pos table real pos.
+circuits.pos_facedir_relative(facedir, npos, pos)
+```
+## facedir_real_pos
+```lua
+--- Transform real pos into pos relative to facedir node.
+-- @param facedir param of facedir node.
+-- @param npos table of facedir node.
+-- @param rpos talbe real pos.
+circuits.facedir_real_pos(facedir, npos, rpos)
+```
+## relative_pos
+```lua
+-- @param node
+-- @param pos
+circuits.relative_pos(node, pos)
+```
+## relative_real_pos
+```lua
+-- @param node
+-- @param rpos
+circuits.relative_real_pos(node, rpos)
+```
+## invert_relative
+```lua
+-- @param dir
+circuits.invert_relative(dir)
+```
+## rpos_is_dir
+```lua
+-- @param rpos
+circuits.rpos_is_dir(rpos)
+```
+## rot_relative_pos
+```lua
+--- Takes two npos and gives you rpos of node a relative to any rotation a might have.
+-- @param a table npos of node a.
+-- @param b table npos of node b.
+circuits.rot_relative_pos(a, b)
+```
+## rot_relative_real_pos
+```lua
+--- Takes a npos and an rpos, returns the real pos, relative to any rotation a might have.
+-- @param a table npos a
+-- @param rpos table rpos b
+circuits.rot_relative_real_pos(a, rpos)
+```
+
 # Power Functions
 These functions are contained within the `power.lua` file.
 ## is_powering
