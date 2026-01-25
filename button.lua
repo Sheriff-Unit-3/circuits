@@ -15,10 +15,7 @@ local button = {
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
-		fixed = {
-			{-0.15,-0.501,-0.15,0.15,-0.35,0.15 },
-			{-0.2,-0.501,-0.2,0.2,-1.8,0.2 },
-		},
+		fixed = {{-0.15,-0.501,-0.15,0.15,-0.35,0.15},{-0.2,-0.501,-0.2,0.2,-1.8,0.2}}
 	},
 	selection_box = {
 		type = "wallmounted",
@@ -26,7 +23,7 @@ local button = {
 		wall_side = {-0.3,-0.2,-0.2,-0.5,0.2,0.2},
 		wall_bottom = {-0.2,-0.3,-0.2,0.2,-0.5,0.2},
 	},
-	tiles = {"default_mese_block.png"},
+	tiles = {"circuits_wood.png"},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
@@ -73,5 +70,4 @@ local button = {
 	}
 }
 
-circuits.register_on_off("circuits:button",button,{},
-	{tiles = {"default_mese_block.png^[colorize:#111:160"}})
+circuits.register_on_off("circuits:button",button,{},{})

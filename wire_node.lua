@@ -11,7 +11,7 @@ local wire = {
 		connect_front = {-0.2,-0.2,-0.5,0.2,0.2,0.2},
 		connect_back = {-0.2,-0.2,-0.2,0.2,0.2,0.5},
 		connect_left = {-0.5,-0.2,-0.2,0.2,0.2,0.2},
-		connect_right = {-0.2,-0.2,-0.2,0.5,0.2,0.2},
+		connect_right = {-0.2,-0.2,-0.2,0.5,0.2,0.2}
 	},
 	selection_box = {
 		type = "connected",
@@ -21,13 +21,13 @@ local wire = {
 		connect_front = {-0.3,-0.3,-0.5,0.3,0.3,0.3},
 		connect_back = {-0.3,-0.3,-0.3,0.3,0.3,0.5},
 		connect_left = {-0.5,-0.3,-0.3,0.3,0.3,0.3},
-		connect_right = {-0.3,-0.3,-0.3,0.5,0.3,0.3},
+		connect_right = {-0.3,-0.3,-0.3,0.5,0.3,0.3}
 	},
 	collision_box = {
 		type = "fixed",
-		fixed = {{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},},
+		fixed = {{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}},
 	},
-	tiles = {"default_mese_block.png"},
+	tiles = {"circuits_wire.png"},
 	paramtype = "light",
 	sunlight_propagates = true,
 	is_ground_content = false,
@@ -38,14 +38,12 @@ local wire = {
 	on_rightclick = function(pos,node)
 		local flags = node.param2
 		pos = c.npos(pos,node)
-		core.chat_send_all(flags)
 		local network, powered = get_wire_network(pos)
 		for _,real in pairs(network) do
 			local dir = c.rot_relative_pos(pos, real)
 			core.chat_send_all("{ " .. dir.x ..  ","
 				.. dir.y .. "," .. dir.z .. "}")
 		end
-		core.chat_send_all(tostring(powered))
 	end,
 	--]]
 	--after_place_node = function(pos,placer,itemstack,pointed_thing)
@@ -63,7 +61,7 @@ local wire = {
 }
 
 c.register_on_off("circuits:wire",wire,{},
-	{tiles = {"default_mese_block.png^[colorize:#111:160"}})
+	{tiles = {"circuits_wire.png^[colorize:#111:160"}})
 
 local colours = {
 	red = "^[colorize:#F00:160",
@@ -77,11 +75,11 @@ for _, colour in ipairs{"red", "green", "blue"} do
 	def.tiles[1] = def.tiles[1] .. col_string
 	def.groups = {choppy=1,["circuit_wire_"..colour]=1,circuit_wire=1}
 	def.connects_to = {"group:circuit_raw_wire", "group:circuit_wire_" .. colour
-	                  , "group:circuit_consumer", "group:circuit_power"}
+	  , "group:circuit_consumer", "group:circuit_power"}
 	def.circuits.connects_to = {"circuit_raw_wire", "circuit_wire_" .. colour
-	                  , "circuit_consumer", "circuit_power"}
+	  , "circuit_consumer", "circuit_power"}
 	c.register_on_off("circuits:wire_" .. colour,def,{},
 	{
-		tiles = {"default_mese_block.png" .. col_string .. "^[colorize:#111:160"},
+		tiles = {"circuits_wire.png" .. col_string .. "^[colorize:#111:160"},
 	})
 end

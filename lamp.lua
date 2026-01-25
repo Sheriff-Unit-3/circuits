@@ -3,7 +3,7 @@ local c = circuits
 local lamp = {
 	description = "Lamp",
 	drawtype = "normal",
-	tiles = {"default_mese_block.png".."^(carts_rail_crossing.png)".."^default_glass.png"},
+	tiles = {"circuits_lamp_off.png"},
 	use_texture_alpha = true,
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -41,12 +41,9 @@ local lamp = {
 	}
 }
 
-c.register_on_off("circuits:lamp",lamp,{},
+c.register_on_off("circuits:lamp",lamp,{
+	tiles = {"circuits_lamp_on.png"}
+},
 {
-	tiles = {"default_mese_block.png"
-		.. "^(carts_rail_crossing.png)"
-		.. "^[colorize:#111:160"
-		.. "^default_glass.png"
-	},
 	light_source = 0,
 })

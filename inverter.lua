@@ -13,11 +13,7 @@ end
 local inverter = {
 	description = "Inverter",
 	drawtype = "normal",
-	tiles = {
-		"(default_mese_block.png)^default_glass.png",
-		"(default_mese_block.png)^carts_rail_crossing.png^default_glass.png",
-		"(default_mese_block.png)^default_glass.png"
-	},
+	tiles = {"circuits_inverter.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {choppy=1,circuit_consumer=1,circuit_power=1},
@@ -69,17 +65,5 @@ local inverter = {
 
 c.register_on_off("circuits:inverter",inverter,{},
 {
-	tiles = {"(default_mese_block.png)"
-		.. "^[colorize:#111:160^default_glass.png"
-		,"(default_mese_block.png)"
-		.. "^carts_rail_crossing.png^[colorize:#111:160^default_glass.png"
-		,"(default_mese_block.png)"
-		.. "^[colorize:#111:160^default_glass.png"
-		,"(default_mese_block.png)"
-		.. "^[colorize:#111:160^default_glass.png"
-		,"(default_mese_block.png)"
-		.. "^[colorize:#111:160^default_glass.png"
-		,"(default_mese_block.png)"
-		.. "^[colorize:#111:160^default_glass.png"
-	},
+	tiles = {"circuits_inverter.png"}
 })

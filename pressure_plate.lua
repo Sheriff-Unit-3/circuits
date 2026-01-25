@@ -15,18 +15,15 @@ local pressure_plate = {
 	drawtype = "nodebox",
 	node_box = {
 		type = "fixed",
-		fixed = {
-			{-0.4,-0.5,-0.4,0.4,-0.4,0.4 },
-			{-0.2,-0.5,-0.2,0.2,-1.8,0.2 },
-		},
+		fixed = {{-0.4,-0.5,-0.4,0.4,-0.4,0.4},{-0.2,-0.5,-0.2,0.2,-1.8,0.2}}
 	},
 	selection_box = {
 		type = "wallmounted",
 		wall_top = {-0.4,0.3,-0.4,0.4,0.5,0.4},
 		wall_side = {-0.3,-0.4,-0.4,-0.5,0.4,0.4},
-		wall_bottom = {-0.4,-0.3,-0.4,0.4,-0.5,0.4},
+		wall_bottom = {-0.4,-0.3,-0.4,0.4,-0.5,0.4}
 	},
-	tiles = {"default_mese_block.png"},
+	tiles = {"circuits_wood.png"},
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
@@ -36,7 +33,6 @@ local pressure_plate = {
 	on_construct = function(pos)
 		core.get_node_timer(pos):start(0.1)
 	end,
-	--after_place_node = function(pos,placer,itemstack,pointed_thing)
 	on_timer = function(pos,_)
 		local npos = c.npos(pos)
 		local entity = core.get_objects_inside_radius(npos,0.8)
@@ -76,5 +72,4 @@ local pressure_plate = {
 	},
 }
 
-c.register_on_off("circuits:pressure_plate",pressure_plate,{},
-	{tiles = {"default_mese_block.png^[colorize:#111:160"}})
+c.register_on_off("circuits:pressure_plate",pressure_plate,{},{})

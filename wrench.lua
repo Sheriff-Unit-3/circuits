@@ -18,7 +18,7 @@ local dir_to_facedir = {
 	[c.hash_pos({x=1,y=0,z=0})] = 12,
 	[c.hash_pos({x=-1,y=0,z=0})] = 16,
 	[c.hash_pos({x=0,y=0,z=1})] = 4,
-	[c.hash_pos({x=0,y=0,z=-1})] = 8,
+	[c.hash_pos({x=0,y=0,z=-1})] = 8
 }
 
 core.register_craftitem("circuits:wrench", {

@@ -3,7 +3,7 @@ local c = circuits
 local indicator = {
 	description = "Indicator",
 	drawtype = "normal",
-	tiles = {"default_mese_block.png".."^(carts_rail_crossing.png)".."^default_glass.png"},
+	tiles = {"circuits_indicator_on.png"},
 	use_texture_alpha = true,
 	paramtype2 = "facedir",
 	is_ground_content = false,
@@ -40,9 +40,5 @@ local indicator = {
 
 c.register_on_off("circuits:indicator",indicator,{},
 {
-	tiles = {"default_mese_block.png"
-		.. "^(carts_rail_crossing.png)"
-		.. "^[colorize:#111:160"
-		.. "^default_glass.png"
-	},
+	tiles = {"circuits_indicator_off.png"}
 })
