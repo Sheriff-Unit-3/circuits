@@ -32,7 +32,7 @@ local pressure_plate = {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
-	groups = {dig_immediate=3,source=1, circuit_power=1},
+	groups = {choppy=1,source=1,circuit_power=1},
 	on_construct = function(pos)
 		core.get_node_timer(pos):start(0.1)
 	end,

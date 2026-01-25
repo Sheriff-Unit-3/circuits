@@ -32,7 +32,7 @@ local button = {
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
-	groups = {dig_immediate=3,circuit_power=1},
+	groups = {choppy=1,circuit_power=1},
 	connects_to = {"group:wire"},
 	on_rightclick = function(pos,node,clicker,itemstack,pointed_thing)
 		local npos = c.npos(pos,node)

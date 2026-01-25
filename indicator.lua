@@ -3,15 +3,12 @@ local c = circuits
 local indicator = {
 	description = "Indicator",
 	drawtype = "normal",
-	tiles = {"default_mese_block.png"
-		.. "^(carts_rail_crossing.png)"
-		.. "^default_glass.png"
-	},
+	tiles = {"default_mese_block.png".."^(carts_rail_crossing.png)".."^default_glass.png"},
 	use_texture_alpha = true,
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	walkable = true,
-	groups = {dig_immediate=3,circuit_consumer=1},
+	groups = {choppy=1,circuit_consumer=1},
 	connects_to = {"group:circuit_wire","group:circuit_power"},
 	circuits = {
 		connects = c.local_area,

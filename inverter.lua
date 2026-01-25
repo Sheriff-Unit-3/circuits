@@ -13,16 +13,14 @@ end
 local inverter = {
 	description = "Inverter",
 	drawtype = "normal",
-	tiles = {"(default_mese_block.png)^default_glass.png"
-		,"(default_mese_block.png)^carts_rail_crossing.png^default_glass.png"
-		,"(default_mese_block.png)^default_glass.png"
-		,"(default_mese_block.png)^default_glass.png"
-		,"(default_mese_block.png)^default_glass.png"
-		,"(default_mese_block.png)^default_glass.png"
+	tiles = {
+		"(default_mese_block.png)^default_glass.png",
+		"(default_mese_block.png)^carts_rail_crossing.png^default_glass.png",
+		"(default_mese_block.png)^default_glass.png"
 	},
 	paramtype2 = "facedir",
 	is_ground_content = false,
-	groups = {dig_immediate=3, circuit_consumer=1, circuit_power=1},
+	groups = {choppy=1,circuit_consumer=1,circuit_power=1},
 	--after_place_node = function(pos,placer,itemstack,pointed_thing)
 	circuits = {
 		base_node = "circuits:inverter",
