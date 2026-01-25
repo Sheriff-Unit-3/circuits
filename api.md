@@ -1,6 +1,7 @@
-# Functions
 These are functions contained within the namespace `circuits` to be used both
 internally and externally. This documentation of them is a work in progress.  
+# Util Functions
+These functions are contained within the `util.lua` file.
 ## register_on_off
 ```lua
 --- Used to register both the on and the off nodes.
@@ -69,4 +70,47 @@ circuits.on_destruct(pos)
 -- @param name string The name of the node
 -- @param def table The node definition table
 circuits.register_node(name, def)
+```
+
+# Power Functions
+These functions are contained within the `power.lua` file.
+## is_powering
+```lua
+--- Checks if the npos node is powering.
+-- @param npos table The npos of the powering node.
+-- @param node table The npos of the powered node.
+-- @return The circuit power definition of the npos node.
+-- @return false If the node does not have a circuit powering definition.
+circuits.is_powering(npos, node)
+```
+## wait
+```lua
+--- Inserts a delayed update.
+-- @param npos table The npos to be updated.
+-- @param args Any arguments for the update.
+-- @param no_ticks The delay for the update.
+circuits.wait(npos, args, no_ticks)
+```
+## update
+```lua
+--- Creates an update with no delay.
+-- @param npos table The npos to be updated.
+-- @param args Any arguments for the update.
+circuits.update(npos, args)
+```
+## power_update
+```lua
+--- Creates a power update with no delay.
+-- @param npos table The npos to be updated.
+-- @param args Any arguments for the update.
+circuits.power_update(npos, args)
+```
+
+# Wire Functions
+This function is contained within the `wire.lua` file.
+## wire.update
+```lua
+--- Updates the wire.
+-- @param npos table The npos of the node to be updated.
+circuits.wire_update(npos)
 ```

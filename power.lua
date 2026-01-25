@@ -5,9 +5,7 @@ local c = circuits
 c.is_powering = function(npos, node)
 	local cd = c.get_circuit_def(npos.node.name)
 
-	if not cd
-	or not cd.powering
-	or not c.is_connected(npos,node) then
+	if not cd or not cd.powering or not c.is_connected(npos,node) then
 		return false
 	end
 	return cd.powering(npos,c.rot_relative_pos(npos,node))
@@ -15,8 +13,7 @@ end
 
 -- c.pending is in persistance.lua
 local function insert_update(update, type)
-	if not update 
-	or not type then
+	if not update or not type then
 		return
 	end
 	local update_list = c.pending
@@ -134,5 +131,3 @@ core.register_globalstep(function(dtime)
 		c.pending.wait[i] = nil
 	end
 end)
-
-

@@ -34,9 +34,7 @@ local wire = {
 	walkable = true,
 	groups = {dig_immediate=3,circuit_wire=1,circuit_raw_wire=1},
 	connects_to = {"group:circuit_wire", "group:circuit_consumer", "group:circuit_power"},
-	--[[
 	--	Circuits properties definition area
-	--]]
 	circuits = {
 		connects = c.local_area,
 		connects_to = {"circuit_consumer", "circuit_wire", "circuit_power"},
