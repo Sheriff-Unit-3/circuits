@@ -3,6 +3,7 @@
     "core",
     "minetest",
     "vector",
-    "bit"
+    "bit",
+    "doors"
   ]
 }

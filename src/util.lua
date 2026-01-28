@@ -34,13 +34,11 @@ c.get_circuit_def = function(node_name)
 
 	return def.circuits
 end
-local get_cd = c.get_circuit_def
 
 c.get_powered = function(npos)
 	local cd = c.get_circuit_def(npos.node.name)
 
-	if not cd
-	or not cd.powered then
+	if not cd or not cd.powered then
 		return nil
 	end
 
@@ -123,31 +121,32 @@ c.register_node = function(name, def)
 	end
 
 	-- Check that consumers/power have updates
-	if  (def.groups.circuit_power or def.groups.circuit_consumer)
-	and not cd.on_update then
+	if (def.groups.circuit_power or def.groups.circuit_consumer) and not cd.on_update then
 		error("Consumer/Producer defined without update")
 	elseif def.groups.circuit_wire then
 		cd.on_update = c.wire_update
 	end
 
 	-- Check producer is_powering
-	if def.groups.circuit_power
-	and not cd.powering then
+	if def.groups.circuit_power and not cd.powering then
 		error("Producer defined without is_powering")
 	end
 
 	-- Check connections exist
-	if not cd.connects_to
-	or not cd.connects then
+	if not cd.connects_to or not cd.connects then
 		error("Component defined without any connection rules")
 	end
 
 	-- Check that a base node is set if wire
-	if def.groups.circuit_wire
-	and not cd.base_node then
+	if def.groups.circuit_wire and not cd.base_node then
 		error("Wire set without a base node")
 	end
 
 	core.register_node(name, def)
 end
 
+function c.is_mod_enabled(mod)
+	if mod and core.get_modpath(mod) then return true
+	else return false
+	end
+end
