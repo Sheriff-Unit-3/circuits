@@ -16,8 +16,9 @@ local circuits_def = {
 		for _,node in ipairs(circuits.get_all_connected(npos)) do
 			if circuits.is_powering(node, npos) then
 				if not circuits.is_on(npos) then
-					doors.door_toggle(npos)
-          core.log("info", "switching doors!")
+          if circuits.is_mod_enabled("doors") then
+					  doors.door_toggle(npos)
+          end
           return true
 				else
 					return false
@@ -25,7 +26,9 @@ local circuits_def = {
 			end
 		end
 		if circuits.is_on(npos) then
-			doors.door_toggle(npos)
+      if circuits.is_mod_enabled("doors") then
+			  doors.door_toggle(npos)
+      end
       return true
     else
 			return false
