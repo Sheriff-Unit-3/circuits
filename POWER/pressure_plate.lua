@@ -30,6 +30,7 @@ local pressure_plate = {
 	is_ground_content = false,
 	walkable = false,
 	groups = {choppy=1,source=1,circuit_power=1},
+	stack_max = c.stack_max(),
 	on_construct = function(pos)
 		core.get_node_timer(pos):start(0.1)
 	end,

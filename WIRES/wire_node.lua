@@ -33,6 +33,7 @@ local wire = {
 	is_ground_content = false,
 	walkable = true,
 	groups = {dig_immediate=3,circuit_wire=1,circuit_raw_wire=1},
+	stack_max = c.stack_max(),
 	connects_to = {"group:circuit_wire", "group:circuit_consumer", "group:circuit_power"},
 	--	Circuits properties definition area
 	circuits = {

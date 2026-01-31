@@ -30,6 +30,7 @@ local button = {
 	is_ground_content = false,
 	walkable = false,
 	groups = {choppy=1,circuit_power=1},
+	stack_max = c.stack_max(),
 	connects_to = {"group:wire"},
 	on_rightclick = function(pos,node,clicker,itemstack,pointed_thing)
 		local npos = c.npos(pos,node)

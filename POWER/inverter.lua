@@ -17,6 +17,7 @@ local inverter = {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {choppy=1,circuit_consumer=1,circuit_power=1},
+	stack_max = c.stack_max(),
 	circuits = {
 		base_node = c.mod()..":inverter",
 		connects = c.local_area,
