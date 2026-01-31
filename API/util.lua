@@ -20,12 +20,12 @@ c.register_on_off = function(name,def,on_def,off_def)
 
 	on.drop = on.drop or name_off
 
-	local alias_on = string.gsub(name_on, "^.*:", "")
 	local alias_off = string.gsub(name_off, "^.*:", "")
+	local alias = string.gsub(alias_off, "_off", "")
 
-	c.register_node(name_on,alias_on)
-	c.register_node(name_off,alias_off)
-	core.register_alias("placeholder", name_off)
+	c.register_node(name_on,on)
+	c.register_node(name_off,off)
+	core.register_alias(alias, name_off)
 end
 
 -- Get the circuits table of a node

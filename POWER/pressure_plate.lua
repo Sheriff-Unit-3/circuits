@@ -55,7 +55,7 @@ local pressure_plate = {
 		on_update = function(npos, args)
 			if args == "on" and not c.is_on(npos) then
 				power_on(npos)
-			elseif args =="off" and c.is_on(npos) then
+			elseif args == "off" and c.is_on(npos) then
 				power_off(npos)
 			else
 				return false
