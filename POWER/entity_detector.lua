@@ -21,7 +21,7 @@ local detector = {
   end,
   on_timer = function(pos,_)
     local npos = c.npos(pos)
-    local entity = core.get_objects_inside_radius(npos,5.0)
+    local entity = core.get_objects_inside_radius(npos,6.0)
     if #entity >= 1 then
       for k,obj in pairs(entity) do
         c.power_update(npos,"on")
