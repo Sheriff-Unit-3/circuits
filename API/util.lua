@@ -20,8 +20,12 @@ c.register_on_off = function(name,def,on_def,off_def)
 
 	on.drop = on.drop or name_off
 
-	c.register_node(name_on,on)
-	c.register_node(name_off,off)
+	local alias_on = string.gsub(name_on, "^.*:", "")
+	local alias_off = string.gsub(name_off, "^.*:", "")
+
+	c.register_node(name_on,alias_on)
+	c.register_node(name_off,alias_off)
+	core.register_alias("placeholder", name_off)
 end
 
 -- Get the circuits table of a node
@@ -145,8 +149,14 @@ c.register_node = function(name, def)
 	core.register_node(name, def)
 end
 
+-- checks if a mod has been enabled for this world
 function c.is_mod_enabled(mod)
 	if mod and core.get_modpath(mod) then return true
 	else return false
 	end
+end
+
+-- gets the current mod's name
+function c.mod()
+	return core.get_current_modname()
 end

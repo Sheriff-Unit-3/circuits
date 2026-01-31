@@ -1,0 +1,13 @@
+local function alias(old_name, new_name)
+  core.register_alias("circuits:"..old_name.."_on", new_name.."_on")
+  core.register_alias("circuits:"..old_name.."_off", new_name.."_off")
+end
+alias("lamp", "circuits_consumers:lamp")
+alias("indicator", "circuits_consumers:indicator")
+alias("button", "circuits_power:button")
+alias("pressure_plate", "circuits_power:pressure_plate")
+alias("inverter", "circuits_power:inverter")
+alias("wire", "circuits_wire:wire")
+alias("wire_red", "circuits_wire:wire_red")
+alias("wire_green", "circuits_wire:wire_green")
+alias("wire_blue", "circuits_wire:wire_blue")

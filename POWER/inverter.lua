@@ -18,7 +18,7 @@ local inverter = {
 	is_ground_content = false,
 	groups = {choppy=1,circuit_consumer=1,circuit_power=1},
 	circuits = {
-		base_node = "circuits:inverter",
+		base_node = c.mod()..":inverter",
 		connects = c.local_area,
 		connects_to = {"circuit_consumer","circuit_wire","circuit_power"},
 		store_connect = "meta",
@@ -62,7 +62,7 @@ local inverter = {
 	},
 }
 
-c.register_on_off("circuits:inverter",inverter,
+c.register_on_off(c.mod()..":inverter",inverter,
 {
 	groups = {choppy=1,circuit_consumer=1,circuit_power=1,not_in_creative_inventory=1}
 },

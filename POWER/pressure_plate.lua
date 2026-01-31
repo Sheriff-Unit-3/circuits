@@ -72,7 +72,7 @@ local pressure_plate = {
 	},
 }
 
-c.register_on_off("circuits:pressure_plate",pressure_plate,
+c.register_on_off(c.mod()..":pressure_plate",pressure_plate,
 {
 	groups = {choppy=1,source=1,circuit_power=1,not_in_creative_inventory=1}
 },{})

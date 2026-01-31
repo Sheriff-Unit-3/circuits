@@ -1,0 +1,1 @@
+circuits.modpath("/wire_node.lua")

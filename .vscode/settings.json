@@ -4,6 +4,7 @@
     "minetest",
     "vector",
     "bit",
-    "doors"
+    "doors",
+    "circuits"
   ]
 }

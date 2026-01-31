@@ -21,7 +21,7 @@ local dir_to_facedir = {
 	[c.hash_pos({x=0,y=0,z=-1})] = 8
 }
 
-core.register_craftitem("circuits:wrench", {
+core.register_craftitem(c.mod()..":wrench", {
 	description = "Wrench",
 	inventory_image = "circuits_wrench.png",
 	on_use = function(itemstack, placer, pointed_thing)

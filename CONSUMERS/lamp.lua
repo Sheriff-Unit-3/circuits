@@ -41,7 +41,7 @@ local lamp = {
 	}
 }
 
-c.register_on_off("circuits:lamp",lamp,
+c.register_on_off(c.mod()..":lamp",lamp,
 {
 	groups = {choppy=1,circuit_consumer=1,not_in_creative_inventory=1}
 },
