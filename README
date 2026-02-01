@@ -1,16 +1,21 @@
 # Circuits
 A modpack for the voxel game engine luanti, originally made by qwertymine3 (GitHub)[https://github.com/Qwertymine] (forums)[https://forum.luanti.org/memberlist.php?mode=viewprofile&u=16371]  
-Currently manantained by Sheriff_U3 (GitHub)[https://github.com/Sheriff-Unit-3] (forums)[https://forum.luanti.org/memberlist.php?mode=viewprofile&u=53881] (ContentDB)[https://content.luanti.org/users/Sheriff-Unit-3/]  
+Currently manantained/developed by Sheriff_U3 (GitHub)[https://github.com/Sheriff-Unit-3] (forums)[https://forum.luanti.org/memberlist.php?mode=viewprofile&u=53881] (ContentDB)[https://content.luanti.org/users/Sheriff-Unit-3/]  
 
 ## Features
 Includes a lamp block, indicator, 4 sets of wires, pressure plate, and a button.  
-This mod also can open and close doors, but only supports MTG doors.  
-Plan is to add more features and to increase the power of this mod.
+This mod also can open and close doors, but only supports MTG doors.
+
+## Games Supported
+Games currently supported:  
+* MTG  
+* Mineclone's  
+* Blockd  
+Other games will work, but may not have support for all the features of this mod.
 
 ## Licensing
 This mod is licensed under (MIT)[https://opensource.org/license/mit] by Sheriff_U3,
 license text can be found in the LICENSE file.
-The texture `circuits_wrench.png` is licensed by Sheriff_U3 under MIT. All other 
-textures are licensed under MIT by (Noob Science)[https://github.com/newtoallofthis123],
-his license is in the media license file.
+All textures are licensed under (CC0)[https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt] by Sheriff_U3,
+license text can be found in the MEDIA LICENSE file.
 The original MIT license by qwertymine3 can be found in the `old license` file.
