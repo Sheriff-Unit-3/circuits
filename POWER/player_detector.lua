@@ -23,14 +23,19 @@ local detector = {
   on_timer = function(pos,_)
     local npos = c.npos(pos)
     local entity = core.get_objects_inside_radius(npos,6.0)
+    local players = 0
     if #entity >= 1 then
       for k,obj in pairs(entity) do
         if obj:is_player() then
           c.power_update(npos,"on")
+          players = 1
           break
+        else
+          players = 0
         end
       end
-    else
+    end
+    if players == 0 then
       if c.is_on(npos) then
         c.power_update(npos,"off")
       end

@@ -39,7 +39,7 @@ local vanish = {
 
 c.register_on_off(c.mod()..":vanish",vanish,{},
   {
-    tiles = "circuits_vanish.png",
+    tiles = {"circuits_vanish.png"},
     pointable = true,
     walkable = true,
     groups = {choppy=1,vanish=1,circuit_wire=1,circuit_consumer=1}
