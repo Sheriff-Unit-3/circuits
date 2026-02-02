@@ -75,3 +75,10 @@ circuits.register_on_off(c.mod()..":button",button,
 {
 	groups = {choppy=1,circuit_power=1,not_in_creative_inventory=1}
 },{})
+
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({output="button",recipe={{"group:wood"}}})
+elseif c.is_mod_enabled("blk") then
+	core.register_craft({output="button",recipe={{"group:wood_planks"}}})
+end

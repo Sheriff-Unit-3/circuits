@@ -52,6 +52,17 @@ c.register_on_off(c.mod()..":wire",wire,{},
 	groups = {dig_immediate=3,circuit_wire=1,circuit_raw_wire=1,not_in_creative_inventory=1}
 })
 
+if c.is_mod_enabled("default") then
+	core.register_craft({
+		output = c.mod()..":wire_off 9",
+		recipe = {
+			{"default:papyrus", "default:papyrus", "default:papyrus"},
+			{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+			{"default:papyrus", "default:papyrus", "default:papyrus"}
+		}
+	})
+end
+
 local colours = {
 	red = "^[colorize:#F00:160",
 	green = "^[colorize:#0F0:160",
@@ -74,4 +85,14 @@ for _, colour in ipairs{"red", "green", "blue"} do
 	{
 		tiles = {"circuits_wire.png" .. col_string .. "^[colorize:#111:160"}
 	})
+	if c.is_mod_enabled("default") then
+		core.register_craft({
+			output = "wire_"..colour.." 9",
+			recipe = {
+				{"default:papyrus", "dye:"..colour, "default:papyrus"},
+				{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+				{"default:papyrus", "dye:"..colour, "default:papyrus"}
+			}
+		})
+	end
 end

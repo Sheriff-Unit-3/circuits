@@ -77,3 +77,15 @@ c.register_on_off(c.mod()..":pressure_plate",pressure_plate,
 {
 	groups = {choppy=1,source=1,circuit_power=1,not_in_creative_inventory=1}
 },{})
+
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({
+		output = "pressure_plate",
+		recipe = {{"group:wood","group:wood","group:wood"}}
+	})
+elseif c.is_mod_enabled("blk") then
+	core.register_craft({
+		output = "pressure_plate",
+		recipe = {{"group:wood_planks","group:wood_planks","group:wood_planks"}}})
+end
