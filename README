@@ -3,13 +3,28 @@ A modpack for the voxel game engine luanti, originally made by qwertymine3 (GitH
 Currently manantained/developed by Sheriff_U3 (GitHub)[https://github.com/Sheriff-Unit-3] (forums)[https://forum.luanti.org/memberlist.php?mode=viewprofile&u=53881] (ContentDB)[https://content.luanti.org/users/Sheriff-Unit-3/]  
 
 ## Features
-Includes a lamp block, indicator, 4 sets of wires, pressure plate, and a button.  
-This mod also can open and close doors, but only supports MTG doors.
+Power sources:  
+* Pressure Plate, step on it to turn on the network.  
+* Button, rightclick to turn on the network for a second.  
+* Entity Detector, detects any entity within 5 nodes.  
+* Player Detector, detects any player within 5 nodes.  
+
+Wires:
+* Wire, connects to all other wires.  
+* Red, Blue, Green, only connects to it's own color of wire.  
+
+Power Consumers:
+* Indicator, has a red light that lights up.  
+* Lamp, white light node.  
+* Vanish, vanishes when powered up.  
+
+## Mods Supported
+Mods currently supported:
+* Doors from MTG
 
 ## Games Supported
 Games currently supported:  
 * MTG  
-* Blockd  
 Other games will work, but may not have support for all the features of this mod.  
 Support for the Mineclone games is not planned, Mineclone just isn't built this sort of mod.
 
