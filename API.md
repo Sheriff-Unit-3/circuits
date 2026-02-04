@@ -26,7 +26,7 @@ on the above mentioned api's, we've added their documentation here for you.
 
 ### add_circuit_def
 ```lua
---- Should be placed in circuits = in the node definition
+--- Should be placed in circuits = in the node definition table.
 -- @param connect string values are "area", or "behind".
 -- (Area will connect to any node next to it. Behind will connect through one node.)
 -- @param connects table Of groups (without group:) that the node will connnect to in the network.
