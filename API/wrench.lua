@@ -25,6 +25,18 @@ core.register_craftitem(c.mod()..":wrench", {
 	description = "Wrench",
 	inventory_image = "circuits_wrench.png",
 	on_use = function(itemstack, placer, pointed_thing)
+		-- Prevents shutdown of the game when pointed at nothing.
+		if pointed_thing.type ~= "node" then
+			core.log("You must point at a node!")
+			return nil
+		end
+		local node = core.get_node(pointed_thing.under)
+		local name = node.name
+		-- Prevents use on the wrench on chests
+		if string.find(name,"chest") then
+			core.log("Don't use the wrench on a chest!")
+			return nil
+		end
 		local npos = c.npos(pointed_thing.under)
 		if not is_facedir(npos) then
 			return
@@ -35,6 +47,18 @@ core.register_craftitem(c.mod()..":wrench", {
 		core.set_node(npos, npos.node)
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
+		-- Prevents shutdown of the game when pointed at nothing.
+		if pointed_thing.type ~= "node" then
+			core.log("You must point at a node!")
+			return nil
+		end
+		local node = core.get_node(pointed_thing.under)
+		local name = node.name
+		-- Prevents use on the wrench on chests
+		if string.find(name,"chest") then
+			core.log("Don't use the wrench on a chest!")
+			return nil
+		end
 		local npos = c.npos(pointed_thing.under)
 		if not is_facedir(npos) then
 			return
