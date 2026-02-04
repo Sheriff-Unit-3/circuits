@@ -1,5 +1,9 @@
 local c = circuits
 
+-- Requires the node's name with out _on or _off.
+-- A definition table to be shared between the on and off nodes.
+-- A definition table for both the on and off node.
+-- Registers two nodes and an alias for the off node.
 c.register_on_off = function(name,def,on_def,off_def)
 	local name_on = name .. "_on"
 	local name_off = name .. "_off"
@@ -29,7 +33,7 @@ c.register_on_off = function(name,def,on_def,off_def)
 end
 
 -- Get the circuits table of a node
--- return nil if does not exist
+-- returns nil if does not exist
 c.get_circuit_def = function(node_name)
 	local def = core.registered_nodes[node_name]
 	if not def or not def.circuits then
@@ -52,14 +56,14 @@ end
 c.get_off = function(npos)
 	local cd = c.get_circuit_def(npos.node.name)
 
-	if not cd
-	or not cd.off then
+	if not cd or not cd.off then
 		return nil
 	end
 
 	return cd.off
 end
 
+-- gets whether the node is on or off
 c.is_on = function(npos)
 	if npos.node.name == c.get_off(npos) then
 		return false
@@ -69,6 +73,7 @@ c.is_on = function(npos)
 	end
 	return nil
 end
+
 -- Mutate a pos into an npos
 -- pos - a position
 -- [node] - a node
@@ -91,6 +96,7 @@ c.on_destruct = function(pos)
 	c.disconnect_all(pos)
 end
 
+-- requires the node name and node definition table
 c.register_node = function(name, def)
 	def.circuits = def.circuits or {}
 	local cd = def.circuits

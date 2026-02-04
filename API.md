@@ -3,6 +3,55 @@ internally and externally. This documentation of them is a work in progress.
 Many of these descriptions may be incomplete, missing, or incorrect. Take everything here 
 with a grain of salt.  
 
+# Supporting Circuits in your own mods
+## Groups
+There are three main groups used by the mod. `circuit_power` is the group that 
+all power providing nodes should use. `circuit_wire` is the group that all wire 
+nodes should use. And `circuit_consumer` is the group that all power using nodes 
+should use.
+
+## Definition Table
+This mod requires that any node that will/should connect to a network have a 
+circuits definition table. There is a helper function (`circuits.add_circuit_def`) 
+that can be used to help define it. You can also do it by hand though.
+
+## on_construct and on_destruct
+You will need to add `circuits.on_construct(pos)` to your node's on_construct function.
+And  `circuits.on_destruct(pos)` to your node's on_destruct function. If you don't then 
+they will not be able to connect (or disconnect) from any other node.
+
+## Modding Functions
+So that you don't have to hunt through the rest of this document for the documentation 
+on the above mentioned api's, we've added their documentation here for you.
+
+### add_circuit_def
+```lua
+--- Should be placed in circuits = in the node definition
+-- @param connect string values are "area", or "behind".
+-- (Area will connect to any node next to it. Behind will connect through one node.)
+-- @param connects table Of groups (without group:) that the node will connnect to in the network.
+-- @param storage string Tells what storing method to use, options are meta, param1, and param2
+-- Don't use meta if this node will be using metadata as well.
+-- Param1 and 2 can only be used if they are not used by the engine.
+-- @param on_update function Params are npos and args.
+-- This is called when other nodes in the network update the status, like when they turn it on.
+function c.add_circuit_def(connect, connects, storage, on_update)
+```
+
+### on_construct
+```lua
+--- Attempts to connect all nodes next to that pos
+-- @param pos table The pos at which to attempt to connect nodes.
+circuits.on_construct(pos)
+```
+
+### on_destruct
+```lua
+--- Disconnects all nodes attached to that pos
+-- @param pos table
+circuits.on_destruct(pos)
+```
+
 # Util Functions
 These functions are contained within the `util.lua` file.
 ## register_on_off
