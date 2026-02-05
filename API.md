@@ -12,8 +12,8 @@ should use.
 
 ## Definition Table
 This mod requires that any node that will/should connect to a network have a 
-circuits definition table. There is a helper function (`circuits.add_circuit_def`) 
-that can be used to help define it. You can also do it by hand though.
+circuits definition table. It is recommended that you fill out this by hand, 
+we are working on a helper function that will make this easier.
 
 ## on_construct and on_destruct
 You will need to add `circuits.on_construct(pos)` to your node's on_construct function.
@@ -35,7 +35,7 @@ on the above mentioned api's, we've added their documentation here for you.
 -- Param1 and 2 can only be used if they are not used by the engine.
 -- @param on_update function Params are npos and args.
 -- This is called when other nodes in the network update the status, like when they turn it on.
-function c.add_circuit_def(connect, connects, storage, on_update)
+function circuits.add_circuit_def(connect, connects, storage, on_update)
 ```
 
 ### on_construct
