@@ -4,7 +4,7 @@ local function is_wire(name)
 	return core.get_item_group(name,"circuit_wire") > 0
 end
 
-local max_net_items = 50
+local max_net_items = tonumber(core.settings:get("circuits_network_size")) or 50
 local function get_wire_network(npos)
 	local network = {npos}
 	local seen = {[c.hash_pos(npos)] = npos}

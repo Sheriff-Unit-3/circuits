@@ -18,7 +18,7 @@ local solar_panel = {
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
 	is_ground_content = false,
-	walkable = false,
+	walkable = true,
 	groups = {choppy=1,source=1,circuit_power=1},
   node_box = {
 	  type = "fixed",
