@@ -25,6 +25,7 @@ So that you don't have to hunt through the rest of this document for the documen
 on the above mentioned api's, we've added their documentation here for you.
 
 ### add_circuit_def
+WARNING: This is an experimental function and should only be used for testing.
 ```lua
 --- Should be placed in circuits = in the node definition table.
 -- @param connect string values are "area", or "behind".
