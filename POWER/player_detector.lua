@@ -81,7 +81,7 @@ if c.is_mod_enabled("default") then
     output = c.mod()..":player_detector_off",
     recipe = {
       {"default:steel_ingot", "dye:red", "default:steel_ingot"},
-      {"default:tin_ingot", "default:copper_ingot", "default:tin_ingot"},
+      {"default:tin_ingot", "light_bulb", "default:copper_ingot"},
       {"default:steel_ingot", "circuit_board", "default:steel_ingot"}
     }
   })

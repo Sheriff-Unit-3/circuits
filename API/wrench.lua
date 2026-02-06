@@ -71,3 +71,16 @@ core.register_craftitem(c.mod()..":wrench", {
 		core.set_node(npos, npos.node)
 	end
 })
+core.register_alias("wrench", c.mod()..":wrench")
+
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({
+    output = "wrench",
+    recipe = {
+      {"", "default:steel_ingot", ""},
+      {"default:steel_ingot", "default:steel_ingot", ""},
+			{"", "", "default:steel_ingot"}
+    }
+  })
+end

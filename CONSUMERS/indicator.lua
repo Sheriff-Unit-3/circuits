@@ -52,7 +52,7 @@ if c.is_mod_enabled("default") then
     output = "indicator",
     recipe = {
       {"group:stone", "group:glass", "group:stone"},
-      {"group:stone", "default:torch", "group:stone"},
+      {"group:stone", "light_bulb", "group:stone"},
 			{"group:stone", "default:copper_ingot", "group:stone"}
     }
   })

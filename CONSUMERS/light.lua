@@ -60,7 +60,7 @@ if c.is_mod_enabled("default") then
     output = "light",
     recipe = {
       {"group:glass", "group:glass", "group:glass"},
-      {"default:copper_ingot", "default:torch", "default:steel_ingot"}
+      {"default:copper_ingot", "light_bulb", "default:steel_ingot"}
     }
   })
 end
