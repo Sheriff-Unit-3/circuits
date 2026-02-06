@@ -45,3 +45,15 @@ c.register_on_off(c.mod()..":vanish",vanish,{},
     groups = {choppy=1,vanish=1,circuit_wire=1,circuit_consumer=1}
   }
 )
+
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({
+    output = "vanish",
+    recipe = {
+      {"group:stone", "circuit_board", "group:stone"},
+      {"default:copper_ingot", "default:mese", "default:copper_ingot"},
+      {"group:stone", "circuit_board", "group:stone"}
+    }
+  })
+end

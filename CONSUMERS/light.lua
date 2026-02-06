@@ -54,6 +54,17 @@ c.register_on_off(c.mod()..":light",light,
 	light_source = 0,
 })
 
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({
+    output = "light",
+    recipe = {
+      {"group:glass", "group:glass", "group:glass"},
+      {"default:copper_ingot", "default:torch", "default:steel_ingot"}
+    }
+  })
+end
+
 -- For some reason the regular lights don't work when these are registered.
 --[[
 light.circuits.connects_to = {"circuit_consumer","circuit_wire","circuit_power"}

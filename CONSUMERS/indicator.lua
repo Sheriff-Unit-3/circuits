@@ -45,3 +45,15 @@ c.register_on_off(c.mod()..":indicator",indicator,
 {
 	tiles = {"circuits_indicator_off.png"}
 })
+
+-- crafts
+if c.is_mod_enabled("default") then
+  core.register_craft({
+    output = "indicator",
+    recipe = {
+      {"group:stone", "group:glass", "group:stone"},
+      {"group:stone", "default:torch", "group:stone"},
+			{"group:stone", "default:copper_ingot", "group:stone"}
+    }
+  })
+end
