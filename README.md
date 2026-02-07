@@ -6,6 +6,7 @@ Currently manantained/developed by Sheriff_U3 (GitHub)[https://github.com/Sherif
 Power sources:  
 * Pressure Plate, step on it to turn on the network.  
 * Button, rightclick to turn on the network for a second.  
+* Lever, rightclick to turn on the network.  
 * Entity Detector, detects any entity within 5 nodes.  
 * Player Detector, detects any player within 5 nodes.  
 
@@ -17,6 +18,11 @@ Power Consumers:
 * Indicator, has a red light that lights up.  
 * Lamp, white light node.  
 * Vanish, vanishes when powered up.  
+
+Items:
+* Circuit Board, used in crafting recipes as a processing unit.  
+* Light Bulb, used in anything that lights up.  
+* Wrench, like the screwdriver, left over from old version of the mod.
 
 ## Mods Supported
 Mods currently supported:
@@ -31,6 +37,6 @@ Support for the Mineclone games is not planned, Mineclone just isn't built for t
 ## Licensing
 This mod is licensed under (MIT)[https://opensource.org/license/mit] by Sheriff_U3,
 license text can be found in the LICENSE file.
-All textures are licensed under (CC0)[https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt] by Sheriff_U3,
+All media files are licensed under (CC0)[https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt] by Sheriff_U3,
 license text can be found in the MEDIA LICENSE file.
 The original MIT license by qwertymine3 can be found in the `old license` file.
