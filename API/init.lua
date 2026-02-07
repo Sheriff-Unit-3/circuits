@@ -18,5 +18,9 @@ circuits.modpath("/connection.lua")
 circuits.modpath("/persistance.lua")
 circuits.modpath("/power.lua")
 circuits.modpath("/wire.lua")
-circuits.modpath("/wrench.lua")
 circuits.modpath("/modding.lua")
+
+local wrench_enabled = core.settings:get("circuits_wrench_enabled") or false
+if wrench_enabled then
+	circuits.modpath("/wrench.lua")
+end

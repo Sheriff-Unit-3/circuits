@@ -22,7 +22,10 @@ Power Consumers:
 Items:
 * Circuit Board, used in crafting recipes as a processing unit.  
 * Light Bulb, used in anything that lights up.  
-* Wrench, like the screwdriver, left over from old version of the mod.
+* Wrench, like the screwdriver, left over from old version of the mod. (disabled by default)
+
+## Known Issues
+* Textures overlapping  
 
 ## Mods Supported
 Mods currently supported:

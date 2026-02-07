@@ -14,4 +14,9 @@ circuits_button_on_timer (Button Press Time) int 1 1 60
 circuits_lever_auto_off (Auto Turn Off Levers) bool false
 
 # Requires: circuits_lever_auto_off
-cirecuits_lever_on_timer (Lever On Time) int 5 1 360
+circuits_lever_on_timer (Lever On Time) int 5 1 360
+
+[Wrench]
+
+#  Enables the wrench, it's similar to MTG's screwdriver
+circuits_wrench_enabled (Wrench) bool false
