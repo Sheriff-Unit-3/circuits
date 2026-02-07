@@ -1,6 +1,6 @@
 --[[
 	A set of position finding utilities for rotatable nodes:
-	* wallmounter
+	* wallmounted
 	* facedir
 --]]
 

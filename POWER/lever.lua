@@ -10,36 +10,40 @@ local function power_off(npos)
 	core.swap_node(npos,npos.node)
 end
 
-local on_time = tonumber(core.settings:get("circuits_button_on_timer")) or 1
+local auto_off = core.settings:get("circuits_lever_auto_off") or false
+local on_time = tonumber(core.settings:get("circuits_lever_on_timer")) or 5
 
-local button = {
-	description = "Button",
-	drawtype = "nodebox",
-	node_box = {
-		type = "fixed",
-		fixed = {{-0.15,-0.501,-0.15,0.15,-0.35,0.15},{-0.2,-0.501,-0.2,0.2,-1.8,0.2}}
-	},
+local lever = {
+	description = "Lever",
+	drawtype = "mesh",
+	mesh = "circuits_lever_down.gltf",
 	selection_box = {
-		type = "wallmounted",
-		wall_top = {-0.2,0.3,-0.2,0.2,0.5,0.2},
-		wall_side = {-0.3,-0.2,-0.2,-0.5,0.2,0.2},
-		wall_bottom = {-0.2,-0.3,-0.2,0.2,-0.5,0.2},
+		type = "fixed",
+		fixed = {-0.2500, -0.2500, 0.3125, 0.2500, 0.2500, 0.5000}
 	},
-	tiles = {"circuits_wood.png"},
+  collision_box = {
+		type = "fixed",
+		fixed = {-0.2500, -0.2500, 0.3125, 0.2500, 0.2500, 0.5000}
+	},
+	tiles = {"circuits_lever_mesh.png"},
 	paramtype = "light",
-	paramtype2 = "wallmounted",
+	paramtype2 = "facedir",
 	sunlight_propagates = true,
 	is_ground_content = false,
 	walkable = false,
-	groups = {oddly_breakable_by_hand=2,circuit_power=1},
+	groups = {oddly_breakable_by_hand=1,choppy=1,circuit_power=1},
 	stack_max = c.stack_max(),
 	connects_to = {"group:circuit_wire"},
 	on_rightclick = function(pos,node,clicker,itemstack,pointed_thing)
 		local npos = c.npos(pos,node)
 		if not c.is_on(npos) then
 			c.power_update(npos,"on")
+    elseif c.is_on(npos) then
+      c.power_update(npos, "off")
 		end
-		core.get_node_timer(pos):start(on_time)
+    if auto_off then
+		  core.get_node_timer(pos):start(on_time)
+    end
 	end,
 	on_timer = function(pos,_)
 		local npos = c.npos(pos)
@@ -50,7 +54,7 @@ local button = {
 		return false
 	end,
 	circuits = {
-		connects = c.behind,
+		connects = {x = {2, -2}, y = {2, -2}, z = {2, -2}},
 		connects_to = {"circuit_consumer", "circuit_wire"},
 		store_connect = "meta",
 		on_update = function(npos, args)
@@ -73,14 +77,26 @@ local button = {
 	}
 }
 
-circuits.register_on_off(c.mod()..":button",button,
+circuits.register_on_off(c.mod()..":lever",lever,
 {
-	groups = {oddly_breakable_by_hand=2,circuit_power=1,not_in_creative_inventory=1}
+  mesh = "circuits_lever_up.gltf",
+	groups = {
+    oddly_breakable_by_hand=1,
+    choppy=1,
+    circuit_power=1,
+    not_in_creative_inventory=1
+  }
 },{})
 
 -- crafts
 if c.is_mod_enabled("default") then
-  core.register_craft({output="button",recipe={{"group:wood"}}})
+  core.register_craft({output="lever 4",recipe={
+    {"group:wood"},
+    {"default:copper_ingot"}}
+  })
 elseif c.is_mod_enabled("blk") then
-	core.register_craft({output="button",recipe={{"group:wood_planks"}}})
+	core.register_craft({output="lever 4",recipe={
+    {"group:wood_planks"},
+    {"copper_bar"}
+  }})
 end
